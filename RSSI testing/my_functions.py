@@ -82,8 +82,8 @@ def rssi_getter(d,received,rssi_av):
 
 # ==== PROTOCOL ====
 
-# Returns the data to be transmitted with the relevant addresses : destination add., device add, number of packets in sequence,  packet number (input in bytes)
 
+# Returns the data to be transmitted with the relevant addresses : destination add., device add, number of packets in sequence,  packet number (input in bytes)
 
 def protocol_encaps_bytes(TXdata_bytes, dst_add, src_add, n_o_packets, packet_no):
     packet = struct.pack("3s3sii{}s".format(len(TXdata_bytes)), dst_add, src_add, n_o_packets, packet_no, TXdata_bytes)
@@ -172,7 +172,6 @@ def protocol_extract_split(packet):
     data_len = len(packet) - 16
     try:
         data = struct.unpack("3s3sii{}s".format(data_len), packet)
-        # if data[0] == dev_add:  # check if device is the intended receiver
         return data[4]
     except struct.error:
         print 'struct error'
@@ -265,8 +264,6 @@ def interruption(wait_time, d):  # returns True if interruption is successful an
     end = time.time()
 
     t = end - start
-
-    # print interruption
 
     if interrupt is None:  # for no interruptions
         print 'no interruption'
