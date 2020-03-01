@@ -17,14 +17,12 @@ while True:
     plt.show()
     plt.title('power vs progression')
     plt.ylabel('Absolute power (dBm)')
-    plt.xlabel('??')
 
-    y = rssi_abs(d) # getting the power value
+    y = rssi_abs(d) # getting the RSSI value
     rs.append(y)
     x = i
     i += 1
-
-    # plt.scatter(x, mean(rs), marker='.', s=15, color='blue')
+    
     plt.scatter(x, y, marker='.', s=15, color='blue')
     plt.pause(0.0001)
 
