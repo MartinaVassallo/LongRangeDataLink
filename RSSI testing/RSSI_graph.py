@@ -19,17 +19,12 @@ while True:
 
     i=0
 
-
     d.setModeRX()
     d.setMdmDeviatn(RX_dev)
 
     timeout = time.time() + 30
+    
     while True:
-        # plt.ion()
-        # plt.show()
-        # plt.title('power vs progression')
-        # plt.ylabel('Absolute power (dBm)')
-        # plt.xlabel('??')
 
         if time.time() > timeout:
             break
@@ -39,11 +34,6 @@ while True:
             continue
         else:
             dbm.append(y)
-        # x = i
-        # i += 1
-
-        # plt.scatter(x, y, marker='.', s=15, color='blue')
-        # plt.pause(0.0001)
 
     distance_vs_dBm.append([int(distance), mean(dbm)])
 
