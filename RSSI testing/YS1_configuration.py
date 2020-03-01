@@ -4,23 +4,16 @@ from rflib import *
 
 d = RfCat()
 d.setModeIDLE()
-d.setFreq(433920000)
-d.setMdmModulation(MOD_MSK)
-d.makePktVLEN(255)
-d.setMdmDRate(25000)
+d.setFreq(433920000)  # Frequency
+d.setMdmModulation(MOD_MSK)  # Modulation
+d.makePktVLEN(255)      # Maximum possible transmission length set
+d.setMdmDRate(25000)  # Data Rate
 
-d.setMdmSyncMode(1)
+d.setMdmSyncMode(1)  # Sync word settings
 d.setMdmSyncWord(0xcccc)
 
-d.setPower(0xc0)
+d.calculatePktChanBW()
 
-d.setPktAddr(123)  # address
+d.setPower(0xc0) # 0xc0 = 10 mW, 0x60 = 1 mW
+
 d.setEnablePktCRC()  # enable CRC
-
-# address check (0x40: no chk , 0x41: chk)
-d.getRadioConfig()
-rc = d.radiocfg
-rc.pktctrl1 = 0x40
-d.setRadioConfig()
-
-# d.printRadioConfig()
