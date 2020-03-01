@@ -11,7 +11,6 @@ distance_vs_dBm = []
 
 dbm = []
 
-
 d.setModeRX()
 
 timeout = time.time() + 30
@@ -38,10 +37,3 @@ print dbm_err
 
 plt.plot(t, dbm)
 plt.show()
-
-
-
-# with open('RSSI_point_distribution.csv', 'w') as csvFile:
-#         writer = csv.writer(csvFile)
-#         writer.writerows(distance_vs_dBm)
-# csvFile.close()
