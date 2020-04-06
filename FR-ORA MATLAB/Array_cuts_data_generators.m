@@ -59,12 +59,8 @@ for j = 2:10
         csvwrite(filename_el, elevation_slice);
     end
 end
-
-    
-
         
     
-
 
 
 function [pattern_phitheta, gain, phi,theta] = customPatternImport(file_path)
