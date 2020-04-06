@@ -10,7 +10,7 @@ C = physconst('LightSpeed');
 % Element spacing
 element_spacing = 0.1419;
 
-cst_export_array_filepath = './ORA_433MHz_Far_field_best_edited.xlsx';
+cst_export_array_filepath = './ORA_433MHz_Far_field.xlsx';
 
 [gain, phi,theta] = customAntennaCSVImport(cst_export_array_filepath);
 
